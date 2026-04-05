@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard - Orange & White</title>
+    <link rel ="stylesheet" href="style.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-orange: #f97316; /* Clean, modern orange */
+            --orange-hover: #ea580c;
+            --sidebar-bg: #ffffff;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --bg-main: #fcfcfc;
+            --transition-speed: 0.3s;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+
+        body {
+            display: flex;
+            background: var(--bg-main);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar --- */
+        aside {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--sidebar-bg);
+            color: var(--text-dark);
+            position: fixed;
+            left: 0;
+            transition: transform var(--transition-speed) ease;
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        /* Class to hide sidebar */
+        aside.closed {
+            transform: translateX(-100%);
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.75rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .close-btn:hover { color: var(--primary-orange); }
+
+        /* --- Main Navigation --- */
+        nav { flex-grow: 1; overflow-y: auto; }
+        nav ul { list-style: none; }
+        
+        .nav-item { margin: 0.25rem 0; }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.2s;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: #fff7ed;
+            color: var(--primary-orange);
+        }
+
+        /* Dropdown Chevron */
+        .chevron {
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+            color: var(--text-muted);
+        }
+        .active-dropdown .chevron {
+            transform: rotate(180deg);
+            color: var(--primary-orange);
+        }
+
+        /* --- Dropdown Menus --- */
+        .dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #fafafa;
+            border-radius: 8px;
+            margin-top: 2px;
+        }
+
+        /* Opened Dropdown state */
+        .active-dropdown + .dropdown-menu {
+            max-height: 200px; /* Set a max height for animation */
+        }
+
+        .dropdown-menu li a {
+            padding: 0.6rem 1rem 0.6rem 2.5rem; /* Indented text */
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .dropdown-menu li a:hover {
+            color: var(--primary-orange);
+            background: #fff7ed;
+        }
+
+        /* --- Sidebar Footer (e.g., Logout) --- */
+        .sidebar-footer {
+            margin-top: auto;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 1rem;
+        }
+        
+       
+
+        /* --- Main Content --- */
+        main {
+            flex-grow: 1;
+            margin-left: var(--sidebar-width);
+            min-height: 100vh;
+            transition: margin-left var(--transition-speed) ease;
+            padding: 2rem;
+        }
+
+        /* When sidebar is closed, main content takes full width */
+        main.expanded { margin-left: 0; }
+
+        /* --- Menu Trigger Button --- */
+        .menu-trigger {
+            background: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 2rem;
+            display: none; /* Hidden when sidebar is open */
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.2);
+            transition: background 0.2s;
+        }
+        .menu-trigger:hover { background: var(--orange-hover); }
+
+        main.expanded .menu-trigger { display: inline-flex; align-items: center; gap: 8px; }
+
+        /* --- Dashboard Content --- */
+        .page-header { margin-bottom: 2rem; }
+        .page-header h1 { font-size: 2.25rem; font-weight: 800; color: var(--text-dark); }
+        .page-header p { color: var(--text-muted); }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border: 1px solid #e5e7eb;
+        }
+        .stat-card h3 { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .stat-card .value { font-size: 2rem; font-weight: 700; color: var(--text-dark); }
+        .stat-card .change { color: #16a34a; font-size: 0.9rem; font-weight: 600; }
+
+    </style>
+</head>
+<body>
+
+    <aside id="sidebar" >
+        <div class="sidebar-header">
+            <div class="brand-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                <span>Nexus CRM</span>
+            </div>
+            <button class="close-btn" onclick="toggleMenu()">&times;</button>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="#" class="nav-link active">Overview</a></li>
+                
+                <li class="nav-item">
+                    <div class="nav-link dropdown-toggle" onclick="toggleDropdown(this)">
+                        <span>Inventory</span>
+                        <span class="chevron">&#9662;</span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="nav-link">Products</a></li>
+                        <li><a href="#" class="nav-link">Suppliers</a></li>
+                        <li><a href="#" class="nav-link">Purchase Orders</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <div class="nav-link dropdown-toggle" onclick="toggleDropdown(this)">
+                        <span>Sales</span>
+                        <span class="chevron">&#9662;</span>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="nav-link">Invoices</a></li>
+                        <li><a href="#" class="nav-link">Customers</a></li>
+                        <li><a href="#" class="nav-link">Leads</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a href="#" class="nav-link">Reports</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
+            </ul>
+        </nav>
+        
+       
+    </aside>
+
+    <main id="mainContent">
+        <button class="menu-trigger" onclick="toggleMenu()">
+            <span>☰</span> Open Menu
+        </button>
+        
+      <section class="feature-container">
+    <div class="feature-image">
+        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/UI/HearinDrinkingGif500px.gif?raw=1" alt="Hearin drinking" />
+    </div>
+    <div class="feature-content">
+        
+        <div class="banner">
+      <div class="box">
+        <h1 id="brew-title"></h1>
+        </div>
+      </div>
+        
+    </div>
+</section>
+
+      <section>
+        <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus deleniti distinctio quisquam, tempore necessitatibus eligendi qui? Possimus, explicabo ullam labore voluptatibus, illum aspernatur et natus veritatis tenetur distinctio ad iusto eligendi eos nisi ducimus dolor obcaecati voluptate aut repellat! Quia officia consequatur blanditiis. Veniam reiciendis quaerat nisi dolore at quia unde ad pariatur quam. Vel officia eum autem, aliquam excepturi necessitatibus hic ipsum eaque quibusdam accusamus fugiat, quia officiis vitae assumenda non corporis dignissimos eligendi, inventore quidem recusandae eos porro blanditiis? Ab, possimus molestiae quae, recusandae, similique voluptatem mollitia vero expedita quis quia suscipit fugiat minima fuga eos officia corporis?</h1>
+      </section>  
+    </main>
+
+    <script>
+        /*
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const main = document.getElementById('mainContent');
+            
+            sidebar.classList.toggle('closed');
+            main.classList.toggle('expanded');
+        }
+            */
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const main = document.getElementById('mainContent');
+    
+    // Check if we are on a mobile/tablet screen
+    if (window.innerWidth <= 992) {
+        // Mobile Logic: Toggle the sliding class
+        sidebar.classList.toggle('mobile-open');
+        // On mobile, we don't want to shrink the main content, 
+        // so we don't necessarily need to toggle 'expanded'
+    } else {
+        // Desktop Logic: Toggle the closing/expanding classes
+        sidebar.classList.toggle('closed');
+        main.classList.toggle('expanded');
+    }
+}
+        // Dropdown Toggle Logic
+        function toggleDropdown(element) {
+            const allDropdowns = document.querySelectorAll('.dropdown-toggle');
+            
+            // Optional: Close other open dropdowns first (accordion style)
+            allDropdowns.forEach(dd => {
+                if (dd !== element) {
+                    dd.classList.remove('active-dropdown');
+                }
+            });
+
+            // Toggle the clicked dropdown
+            element.classList.toggle('active-dropdown');
+        }
+    
+
+        (function(){
+  const text = "ꖾꗍꗇⱤꕯꖦ'ꕷ ꕗⱤꗍⱲ";
+  const title = document.getElementById("brew-title");
+  const colors = ["#FFA500", "#FFFFFF", "#1E90FF"];
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement("span");
+    span.textContent = text[i];
+    span.style.transition = "color 2s ease";
+    span.style.color = colors[0];
+    title.appendChild(span);
+  }
+  let currentColor = 0;
+  setInterval(() => {
+    const spans = title.querySelectorAll("span");
+    for (let i = 0; i < spans.length; i++) {
+      setTimeout(() => {
+        spans[i].style.color = colors[(currentColor + 1) % colors.length];
+      }, i * 200);
+    }
+    currentColor = (currentColor + 1) % colors.length;
+  }, 4000);
+})();
+    
+    </script>
+
+    <script src="main.js"/>
+</body>
+</html>

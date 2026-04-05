@@ -1,0 +1,97 @@
+/* Container for the two elements */
+    .feature-container {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-top: 3rem;
+        background: rgb(204, 121, 65);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid #f1f5f9;
+    }
+
+    /* Left Side: Image */
+    .feature-image {
+        flex: 1;
+        max-width: 420px; /* Takes up 50% width */
+    }
+
+    .feature-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        display: block;
+        object-fit: cover;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Right Side: Content */
+    .feature-content {
+        flex: 1; /* Takes up 50% width */
+    }
+
+
+   
+
+    .secondary-btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border: 2px solid #f97316;
+        color: #f97316;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    .secondary-btn:hover {
+        background: #f97316;
+        color: white;
+    }
+
+    /* MOBILE VIEW: Stack vertically */
+    @media (max-width: 992px) {
+        .feature-container {
+            flex-direction: column; /* This stacks the elements */
+            gap: 2rem;
+            padding: 2rem;
+            text-align: center;
+        }
+aside {
+        /* 1. Hide it by default on mobile */
+        transform: translateX(-100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 2000; /* Ensure it stays above content */
+        width: 280px;
+        box-shadow: 10px 0 15px rgba(0,0,0,0.1);
+    }
+    aside.mobile-open {
+        transform: translateX(0);
+    }
+        .feature-title {
+            font-size: 2.5rem; /* Slightly smaller for mobile screens */
+        }
+        main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 1rem;
+    }
+        .menu-trigger {
+        display: inline-flex !important;
+    }
+    }
+
+     .banner{text-align:center}
+  .banner .box{
+    display:inline-block; padding:40px 70px; border-radius:25px;
+    background: rgba(28,27,68,0.75); margin-bottom:20px;
+    box-shadow:0 12px 30px rgba(0,0,0,.45);
+  }
+  #brew-title{ font-family:"Cinzel",serif; font-size: clamp(44px,9vw,90px); font-weight:900; margin:0 }
+
+    .hearin{
+
+    
+  }
