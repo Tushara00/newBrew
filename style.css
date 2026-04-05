@@ -54,8 +54,11 @@
         .feature-container {
             flex-direction: column; /* This stacks the elements */
             gap: 2rem;
-            padding: 2rem;
+            margin-top:0;
             text-align: center;
+        }
+        .menu-trigger {
+            margin-bottom:0;
         }
 aside {
         /* 1. Hide it by default on mobile */
