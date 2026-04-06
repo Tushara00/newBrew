@@ -1,3 +1,6 @@
+body {
+    font-family: 'Cinzel', serif;
+}
 /* Container for the two elements */
     .feature-container {
         display: flex;
@@ -49,6 +52,59 @@
         color: white;
     }
 
+    .section {
+    display: grid; /* Use Grid instead of Flex */
+    /* This creates 3 equal columns */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem; /* Spacing between the items */
+    width: 100%;
+    margin-top: 3rem;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+.image {
+    width: 100%;
+    /* 1. Define the height you want here */
+    height: 350px; 
+    border-radius: 12px;
+    overflow: hidden; /* Keeps the image inside the rounded corners */
+    margin-bottom: 1rem;
+}
+.image img {
+    width: 100%;
+    height: 100%; /* Fills the 350px container */
+    
+    /* 2. CRITICAL: This prevents the image from looking stretched */
+    object-fit: cover; 
+    
+    /* 3. This centers the focus of the image */
+    object-position: center; 
+    
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* --- Responsive Layout for Mobile --- */
+@media (max-width: 992px) {
+    .section {
+        /* On tablets/small laptops, show 2 per row */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .section {
+        /* On phones, show 1 per row */
+        grid-template-columns: 1fr;
+    }
+}
     /* MOBILE VIEW: Stack vertically */
     @media (max-width: 992px) {
         .feature-container {
@@ -79,12 +135,17 @@ aside {
         main {
         margin-left: 0 !important;
         width: 100% !important;
-        padding: 1rem 0 !important;
+        padding: 1rem 0.3 !important;
     }
         .menu-trigger {
         display: inline-flex !important;
     }
     }
+    @media (max-width: 768px) {
+    .tiles.two {
+        grid-template-columns: 1fr !important; /* 1 column on mobile */
+    }
+}
 
      .banner{text-align:center}
   .banner .box{
@@ -94,7 +155,312 @@ aside {
   }
   #brew-title{ font-family:"Cinzel",serif; font-size: clamp(44px,9vw,90px); font-weight:900; margin:0 }
 
-    .hearin{
+   /*carousel*/
+    /* Carousels use <img> slides (square) */
+  .carousel{position:relative; border-radius:8px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.4);
+            background:#111; aspect-ratio:1/1; min-height:340px}
+  .carousel img.slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s ease}
+  .carousel img.slide.active{opacity:1}
+  .dots{position:absolute; right:10px; bottom:10px; display:flex; gap:8px}
+  .dot{width:10px;height:10px;border-radius:999px;border:1px solid #fff;opacity:.7}
+  .dot.active{background:#fff;opacity:1}
 
+  /* Caption block for carousels to match tiles */
+  .cap{padding:12px 14px}
+  .cap .t{margin:0 0 4px; font-weight:800; font-size:18px}
+  .cap .d{margin:0; opacity:.85; font-size:14px}
+
+  .pad-bottom{height:80px}
+  .t{margin:0 0 4px; font-weight:800; font-size:18px}
+  .d{margin:0; opacity:.85; font-size:14px}
+
+  /* Square image wrapper using real <img> */
+  .thumb{position:relative; width:100%; border-bottom:1px solid rgba(255,255,255,.06)}
+  .thumb::before{content:""; display:block; padding-top:100%;}
+  .thumb > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
+
+.tiles.two {
+    display: grid;
+    /* Create two equal columns */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; /* Space between the left and right side */
+    align-items: start;
+    width: 100%;
+}
+
+/* Ensure the individual tiles don't stretch weirdly */
+.tile {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; /* Removes underline from links */
+    color: inherit;
+}
+ header {
+    /* 1. The Glass Effect */
+    background: rgba(255, 255, 255, 0.7); /* White with 70% transparency */
+    backdrop-filter: blur(12px);         /* This creates the frosted glass look */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
     
-  }
+    /* 2. Layout */
+    display: none; /* Controlled by your JS 'expanded' class */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid rgba(249, 115, 22, 0.1); /* Subtle orange border */
+    
+    /* 3. Positioning */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+/* Logo Styling */
+.header-logo a {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #1f2937;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+/* Right Side Icons */
+.header-links {
+    display: flex;
+    gap: 15px;
+}
+
+.header-links a {
+    color: #4b5563; /* Subtle grey */
+    font-size: 1.3rem;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+.header-links a:hover {
+    color: #f97316; /* Turns orange on hover */
+}
+.menu-trigger:hover {
+    transform: scale(1.05);
+    background: #ea580c;
+}
+  main.expanded header {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+}
+
+
+.section1 {
+   /* 1. Background and Layout */
+    background-color: #fefefe; /* Very clean off-white */
+    background-image: radial-gradient(#f9731605 2px, transparent 2px); /* Very subtle orange dots */
+    background-size: 30px 30px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    padding: 1rem 2rem;
+    width: 100%;
+    min-height: 450px;
+    
+    /* 2. Standard Border Accents */
+    border-top: 1px solid #f1f5f9;
+    border-bottom: 1px solid #f1f5f9;
+    
+    /* 3. Subtle Shadow for depth */
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+}
+
+.self-content {
+    max-width: 750px;
+    position: relative;
+}
+
+/* 4. A decorative accent line above the title */
+.self-content::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #f97316; /* Orange accent line */
+    margin: 0 auto 20px;
+    border-radius: 10px;
+}
+
+.feature-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: #f97316;
+    position: relative;
+    z-index: 1;
+}
+
+/* Optional: Soft orange glow behind the highlighted text */
+.highlight::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    width: 100%;
+    height: 8px;
+    background: rgba(249, 115, 22, 0.1); /* Very pale orange underline */
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .section1 {
+        /* 1. Reduce vertical padding so it's not too tall on phones */
+        padding: 1rem 1.5rem; 
+        min-height: auto; /* Let the content define the height */
+    }
+    .feature-title {
+        /* 2. Shrink the font size so "code, draw, and write" doesn't break into tiny lines */
+        font-size: 1.8rem; 
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    .secondary-btn {
+        /* 5. Make the button full-width or slightly larger for easier tapping */
+        width: 100%; 
+        text-align: center;
+        padding: 14px;
+    }
+}
+
+.divider {
+    /* 1. The Gradient Background */
+    background: linear-gradient(90deg, rgba(249, 115, 22, 0.1) 0%, rgba(255, 255, 255, 1) 50%, rgba(249, 115, 22, 0.1) 100%);
+    
+    /* 2. Positioning and Centering */
+    text-align: center;
+    padding: 20px 0;
+    margin: 4rem 0 2.5rem;
+    width: 100%;
+    
+    /* 3. Decorative Borders */
+    border-top: 1px solid rgba(249, 115, 22, 0.2);
+    border-bottom: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.divider h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+}
+
+/* Optional: Adding a small orange dot on either side of the text for focus */
+.divider h2::before, 
+.divider h2::after {
+    content: "•";
+    color: #f97316;
+    margin: 0 15px;
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+.sidebar-footer p {
+    font-size: .9rem;          /* Small, label-style text */
+    font-weight: 800;
+    color: #9ca3af;            /* Muted grey for the label */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.sidebar-footer a {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #f97316;            /* Brand Orange */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    word-break: break-all;     /* Prevents long emails from breaking layout */
+}
+
+/* Hover effect */
+.sidebar-footer a:hover {
+    color: #ea580c;            /* Darker orange on hover */
+    text-decoration: underline;
+}
+.main-footer {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: #fcfcfc; /* Off-white to distinguish from content */
+    border-top: 1px solid #f1f5f9;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo and GIF container */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-gif {
+    width: 40px; /* Keep it small and professional */
+    height: 40px;
+    object-fit: contain;
+    /* Optional: filter to make a black gif look orange */
+    /* filter: sepia(1) saturate(5) hue-rotate(340deg); */
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #1f2937;
+    letter-spacing: -1px;
+    text-transform: lowercase; /* Professional modern style */
+}
+
+.highlight-orange {
+    color: #f97316;
+}
+
+.footer-tagline {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.footer-bottom-line {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-top: 1px solid #f1f5f9;
+   
+    display: inline-block;
+    width: 200px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .logo-text {
+        font-size: 1.4rem;
+    }
+    .main-footer {
+        padding: 40px 15px;
+    }
+}
