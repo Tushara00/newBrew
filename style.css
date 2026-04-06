@@ -182,7 +182,7 @@ body {
     z-index: 100;
     display: none; 
     transition: opacity 0.3s ease;
-    opacity: 0;
+  
   }
 /* Logo Styling */
 .header-logo a {
