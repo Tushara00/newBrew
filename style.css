@@ -183,7 +183,7 @@ body {
     transition: opacity 0.3s ease;
     width: 100vw;
     max-width:100%;
-    border:2px solid red
+    
   }
 /* Logo Styling */
 .header-logo a {
