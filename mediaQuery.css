@@ -118,4 +118,11 @@
     .carousels img{
         width:90% important
     }
+
+    .sidebar-footer a {
+    font-size: .5rem;       /* Prevents long emails from breaking layout */
+}
+  .sidebar-footer p {
+    font-size: .5rem;       /* Prevents long emails from breaking layout */
+}
 }

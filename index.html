@@ -3,187 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Dashboard - Orange & White</title>
+    <title>Hearin's Brew</title>
     <link rel ="stylesheet" href="style.css">
        <link rel ="stylesheet" href="mediaQuery.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --sidebar-width: 280px;
-            --primary-orange: #f97316; /* Clean, modern orange */
-            --orange-hover: #ea580c;
-            --sidebar-bg: #ffffff;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-            --bg-main: #fcfcfc;
-            --transition-speed: 0.3s;
-        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box;  font-family: 'Cinzel',sans-serif; }
-
-        body {
-            display: flex;
-            background: var(--bg-main);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        /* --- Sidebar --- */
-        aside {
-            width: var(--sidebar-width);
-            height: 100vh;
-            background: var(--sidebar-bg);
-            color: var(--text-dark);
-            position: fixed;
-            left: 0;
-            transition: transform var(--transition-speed) ease;
-            z-index: 1000;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            border-right: 1px solid #e5e7eb;
-        }
-
-        /* Class to hide sidebar */
-        aside.closed {
-            transform: translateX(-100%);
-        }
-
-        .sidebar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #f3f4f6;
-        }
-
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-orange);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.75rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .close-btn:hover { color: var(--primary-orange); }
-
-        /* --- Main Navigation --- */
-        nav { flex-grow: 1; overflow-y: auto; }
-        nav ul { list-style: none; }
-        
-        .nav-item { margin: 0.25rem 0; }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.75rem 1rem;
-            color: var(--text-dark);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: 0.2s;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            background-color: #fff7ed;
-            color: var(--primary-orange);
-        }
-
-        /* Dropdown Chevron */
-        .chevron {
-            font-size: 0.8rem;
-            transition: transform 0.3s;
-            color: var(--text-muted);
-        }
-        .active-dropdown .chevron {
-            transform: rotate(180deg);
-            color: var(--primary-orange);
-        }
-
-        /* --- Dropdown Menus --- */
-        .dropdown-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: #fafafa;
-            border-radius: 8px;
-            margin-top: 2px;
-        }
-
-        /* Opened Dropdown state */
-        .active-dropdown + .dropdown-menu {
-            max-height: 200px; /* Set a max height for animation */
-        }
-
-        .dropdown-menu li a {
-            padding: 0.6rem 1rem 0.6rem 2.5rem; /* Indented text */
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-        .dropdown-menu li a:hover {
-            color: var(--primary-orange);
-            background: #fff7ed;
-        }
-
-        /* --- Sidebar Footer (e.g., Logout) --- */
-        .sidebar-footer {
-            margin-top: auto;
-            border-top: 1px solid #f3f4f6;
-            padding-top: 1rem;
-        }
-        
-       
-
-        /* --- Main Content --- */
-        main {
-            flex-grow: 1;
-            margin-left: var(--sidebar-width);
-            min-height: 100vh;
-            transition: margin-left var(--transition-speed) ease;
-            
-        }
-
-        /* When sidebar is closed, main content takes full width */
-        main.expanded { margin-left: 0; }
-
-        /* --- Menu Trigger Button --- */
-      .menu-trigger {
-    background: #f97316; /* Your brand orange */
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    transition: transform 0.2s;
-}
-        .menu-trigger:hover { background: var(--orange-hover); }
-
-        main.expanded .menu-trigger { display: inline-flex; align-items: center; gap: 8px; }
-
-        /* --- Dashboard Content --- */
-       
-       
-
-    </style>
 </head>
 <body>
 <div style="max-width: 1350px;
@@ -347,55 +172,57 @@
     </div>
   </section>
   -->
-<!-- professional -->
-<div class="divider"><h2>PROFESSIONAL</h2></div>
-    <section class="section" >
-    
-    <div class="wrap">
-      <div class="image">
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
-      </div>
-      <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
-    </div>
-    <div class="wrap">
-      <div class="image">
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
-      </div>
-      <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
-    </div>
-    <div class="wrap">
-      <div class="image" style="">
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
-      </div>
-      <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
-    </div>
-  </section>
+
 
    <div class="divider"><h2>GAME MAKING</h2></div>
   <section class="section" >
     <div class="wrap">
       <div class="image" >
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
       </div>
       <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
     </div>
     <div class="wrap">
       <div class="image">
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
       </div>
-      <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
+      <div><p><a href=""></a>Egg Hunt (Godot)</p><p class="d">Prototypes & dev logs (WIP).</p></div>
     </div>
     <div class="wrap">
       <div class="image">
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
       </div>
-      <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
+      <div><p><a href=""></a>Farm Farm</p><p class="d">Cozy farming Concept (WIP).</p></div>
     </div>
     <div class="wrap">
       <div class="image" style="">
-        <img src="https://github.com/Hearin1/HearinsBrewRep/blob/main/Drawings%20I%20made/Mickey%20p2.png?raw=1" alt="The Nautlins" />       
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
       </div>
-      <div><p><a href=""></a>The Nautlins (Godot)</p><p class="d">GIFs, notes, and builds (WIP).</p></div>
+      <div><p><a href=""></a>The Box Game</p><p class="d">Prototype Puzzler (WIP).</p></div>
+    </div>
+  </section>
+
+  <!-- professional -->
+<div class="divider"><h2>PROFESSIONAL</h2></div>
+    <section class="section" >
+    
+    <div class="wrap">
+      <div class="image">
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
+      </div>
+      <div><p><a href="https://github.com/Hearin1"></a>GitHub</p><p class="d">code, experiments and tools.</p></div>
+    </div>
+    <div class="wrap">
+      <div class="image">
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
+      </div>
+      <div><p><a href=""></a>Published Works</p><p class="d">Articles, books or releases (WIP).</p></div>
+    </div>
+    <div class="wrap">
+      <div class="image" style="">
+        <img src="assets/Mickey p2.jpg" alt="The Nautlins" />       
+      </div>
+      <div><p><a href="#"></a>Itch.io</p><p class="d">Games and Prototypes (coming soon).</p></div>
     </div>
   </section>
 
@@ -416,46 +243,10 @@
 
     </main>
 </div>
+<!--
     <script>
-        /*
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const main = document.getElementById('mainContent');
-            
-            sidebar.classList.toggle('closed');
-            main.classList.toggle('expanded');
-        }
-            */
-function toggleMenu() {
-    const sidebar = document.getElementById('sidebar');
-    const main = document.getElementById('mainContent');
-    
-    // Check if we are on a mobile/tablet screen
-    if (window.innerWidth <= 992) {
-        // Mobile Logic: Toggle the sliding class
-        sidebar.classList.toggle('mobile-open');
-        // On mobile, we don't want to shrink the main content, 
-        // so we don't necessarily need to toggle 'expanded'
-    } else {
-        // Desktop Logic: Toggle the closing/expanding classes
-        sidebar.classList.toggle('closed');
-        main.classList.toggle('expanded');
-    }
-}
-        // Dropdown Toggle Logic
-        function toggleDropdown(element) {
-            const allDropdowns = document.querySelectorAll('.dropdown-toggle');
-            
-            // Optional: Close other open dropdowns first (accordion style)
-            allDropdowns.forEach(dd => {
-                if (dd !== element) {
-                    dd.classList.remove('active-dropdown');
-                }
-            });
+      
 
-            // Toggle the clicked dropdown
-            element.classList.toggle('active-dropdown');
-        }
     
 
         (function(){
@@ -507,7 +298,7 @@ document.querySelectorAll('.carousel').forEach(car=>{
 
     
     </script>
-
-    <script src="main.js"/>
+-->
+   <script src="main.js"></script>
 </body>
 </html>
