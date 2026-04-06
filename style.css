@@ -175,14 +175,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
-   
+    border-bottom: 1px solid #0f4ecc; 
     position: sticky; /* Keeps it at the top of the main area */
     top: 0;
     z-index: 100;
     display: none; 
     transition: opacity 0.3s ease;
-  
+    width: 100vw;
+    max-width:100%;
+    border:2px solid red
   }
 /* Logo Styling */
 .header-logo a {
