@@ -53,46 +53,61 @@
     background-color:#0f1220; /* fallback color under/around the image */
   }
 
-  /* ---------- Two-column layout ---------- */
+ 
 .layout {
-    display: grid;
-    /* Use 1fr 1fr to share space equally, or 2fr 3fr for a larger book */
-    grid-template-columns: 1fr 1fr; 
-    gap: 20px;
-    align-items: center;
-    transition: all 0.3s ease; /* Smoothly shrink when sidebar opens */
-  
-    width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px;
+  width: 100%;
 }
 
-  .controls{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap: 22px;
-    text-align:center;
-  
-  }
+.controls,
+.bookWrap,
+.layout > * {
+  min-width: 0;
+}
+ .controls{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:22px;
+  text-align:center;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+}
 
   /* ---------- Header ---------- */
   .header1{ position:relative; text-align:center; }
   .header1 .glow{
-    display:inline-block;
-    padding:28px 56px 32px;
-    border-radius:20px;
-    background: rgba(28, 27, 68, 0.78);
-    position: relative;
-  }
-  .header1 .peek{
-    position:absolute;
-    top:-120px; right:-120px;
-    width:400px; height:400px;
-    object-fit:contain;
-    filter: drop-shadow(0 6px 18px rgba(0,0,0,.45));
-    pointer-events:none; user-select:none;
-  }
+  display: block;      /* instead of inline-block */
+  width: 100%;
+  max-width: 100%;
+  padding: 28px 32px 32px; /* reduce side padding */
+  border-radius: 20px;
+  background: rgba(28, 27, 68, 0.78);
+  position: relative;
+  overflow: hidden;
+}
+#brew-title3{
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+  
   .header1 h1{ font-size:78px; font-weight:900; margin:0 0 10px; line-height:1.05; }
-  .header1 p{ font-size:22px; color:#fff; max-width:640px; margin:0 auto 28px; line-height:1.55; }
+ .header1 p{
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color:#fff;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 28px;
+  line-height: 1.55;
+  overflow-wrap: break-word;
+}
 
   /* ---------- Button ---------- */
   .btn{
