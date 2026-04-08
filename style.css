@@ -533,14 +533,16 @@ body {
 }
 
 /* Each tile */
+
 .tile {
-  flex: 1 1 300px; /* grow/shrink, min width 300px */
-  max-width: 400px; /* optional max width */
+  flex: 0 0 calc(50% - 10px); /* exactly 2 per row with gap compensation */
+  max-width: calc(50% - 10px);
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
 }
+
 
 /* Carousel styles (from previous example) */
 .carousel {
