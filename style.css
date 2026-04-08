@@ -283,48 +283,7 @@ body {
   }
   #brew-title{ font-family:"Cinzel",serif; font-size: clamp(44px,9vw,90px); font-weight:900; margin:0 }
 
-   /*carousel*/
-    /* Carousels use <img> slides (square) */
-  .carousel{position:relative; border-radius:8px; overflow:hidden; box-shadow:0 8px 22px rgba(0,0,0,.4);
-            background:#111; aspect-ratio:1/1; min-height:340px}
-  .carousel img.slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .6s ease}
-  .carousel img.slide.active{opacity:1}
-  .dots{position:absolute; right:10px; bottom:10px; display:flex; gap:8px}
-  .dot{width:10px;height:10px;border-radius:999px;border:1px solid #fff;opacity:.7}
-  .dot.active{background:#fff;opacity:1}
-
-  /* Caption block for carousels to match tiles */
-  .cap{padding:12px 14px}
-  .cap .t{margin:0 0 4px; font-weight:800; font-size:18px}
-  .cap .d{margin:0; opacity:.85; font-size:14px}
-
-  .pad-bottom{height:80px}
-  .t{margin:0 0 4px; font-weight:800; font-size:18px}
-  .d{margin:0; opacity:.85; font-size:14px}
-
-  /* Square image wrapper using real <img> */
-  .thumb{position:relative; width:100%; border-bottom:1px solid rgba(255,255,255,.06)}
-  .thumb::before{content:""; display:block; padding-top:100%;}
-  .thumb > img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block}
-
-.tiles.two {
-    display: grid;
-    /* Create two equal columns */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 20px; /* Space between the left and right side */
-    align-items: start;
-    width: 100%;
-}
-
-/* Ensure the individual tiles don't stretch weirdly */
-.tile {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none; /* Removes underline from links */
-    color: inherit;
-}
-
-
+  
   header{  
     background: rgba(255, 255, 255, 0.7); /* White with 70% transparency */
     backdrop-filter: blur(12px);         /* This creates the frosted glass look */
