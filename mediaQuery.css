@@ -109,7 +109,7 @@
     }
 
     .divider h2 {
-        font-size: 1rem;
+        font-size: .8rem;
     }
     .section{
        grid-template-columns: repeat(1, 1fr);  
@@ -120,9 +120,9 @@
     }
 
     .sidebar-footer a {
-    font-size: .5rem;       /* Prevents long emails from breaking layout */
+    font-size: .7rem;       /* Prevents long emails from breaking layout */
 }
   .sidebar-footer p {
-    font-size: .5rem;       /* Prevents long emails from breaking layout */
+    font-size: .8rem;       /* Prevents long emails from breaking layout */
 }
 }

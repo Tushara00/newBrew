@@ -13,7 +13,7 @@
     justify-content: center;
     overflow: hidden;
     margin: 1rem 0;
-    border-radius: 15px; /* Matches your dashboard style */
+   
     
     /* The GIF Background */
     background-image: url('assets/bg.gif'); 
@@ -226,7 +226,12 @@
     }
 
     .story-card-vibrant {
-        margin-top: -30px; /* Slight overlap on mobile for style */
+        
         padding: 1.5rem;
     }
+}
+@media(max-width:600px){
+    #brew-title2 {
+    font-size:2rem;
+}
 }

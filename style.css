@@ -363,7 +363,7 @@ body {
 .header-logo a {
     font-weight: 900;
     font-size: 1.2rem;
-    color: #1f2937;
+    color: #000000;
     text-decoration: none;
     letter-spacing: -0.5px;
 }
@@ -375,7 +375,7 @@ body {
 }
 
 .header-links a {
-    color: #4b5563; /* Subtle grey */
+    color: #000000; /* Subtle grey */
     font-size: 1.3rem;
     transition: color 0.2s;
     text-decoration: none;
@@ -462,7 +462,7 @@ body {
 
 .divider {
     /* 1. The Gradient Background */
-    background: linear-gradient(90deg, rgba(249, 115, 22, 0.1) 0%, rgba(255, 255, 255, 1) 50%, rgba(249, 115, 22, 0.1) 100%);
+    background: linear-gradient(90deg, rgba(249, 116, 22, 0.541) 0%, rgba(255, 255, 255, 1) 50%, rgba(249, 116, 22, 0.582) 100%);
     
     /* 2. Positioning and Centering */
     text-align: center;
