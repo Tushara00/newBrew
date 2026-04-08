@@ -342,6 +342,8 @@ body {
     text-decoration: none; /* Removes underline from links */
     color: inherit;
 }
+
+
   header{  
     background: rgba(255, 255, 255, 0.7); /* White with 70% transparency */
     backdrop-filter: blur(12px);         /* This creates the frosted glass look */

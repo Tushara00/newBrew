@@ -59,6 +59,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 20px;
   width: 100%;
+  align-items:center
 }
 
 .controls,
@@ -98,7 +99,7 @@
   overflow-wrap: anywhere;
 }
   
-  .header1 h1{ font-size:78px; font-weight:900; margin:0 0 10px; line-height:1.05; }
+  .header1 h1{ font-size:50px; font-weight:900; margin:0 0 10px; line-height:1.05; }
  .header1 p{
   font-size: clamp(1rem, 1.8vw, 1.4rem);
   color:#fff;
@@ -201,6 +202,6 @@
     .bookWrap{ justify-content:center; }
     .controls{ margin-left: 0; }
     .header1 .peek{ width:280px; height:280px; top:-90px; right:-90px; }
-    .header1 h1{ font-size:50px; }
+    .header1 h1{ font-size:30px; }
     .header1 p{ font-size:28px; max-width:520px; }
   }
