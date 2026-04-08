@@ -73,3 +73,29 @@ document.querySelectorAll('.carousel').forEach(car=>{
     currentColor = (currentColor + 1) % colors.length;
   }, 4000);
 })();
+
+
+
+document.querySelectorAll('.carousel').forEach(carousel => {
+  const slides = carousel.querySelectorAll('.slide');
+  const dots = carousel.querySelectorAll('.dot');
+  let current = 0;
+  const interval = parseInt(carousel.dataset.interval) || 4000;
+
+  function showSlide(index) {
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    current = index;
+  }
+
+  // Auto slide
+  setInterval(() => {
+    let next = (current + 1) % slides.length;
+    showSlide(next);
+  }, interval);
+
+  // Dot click
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSlide(i));
+  });
+});
