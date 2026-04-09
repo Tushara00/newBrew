@@ -133,7 +133,10 @@ section{
         font-size: .8rem;
     }
     .section{
-       grid-template-columns: repeat(1, 1fr);  
+       grid-template-columns: repeat(1, 1fr); 
+         padding-left: 1rem;
+     padding-right: 1rem; 
+
     }
 
     .carousels img{

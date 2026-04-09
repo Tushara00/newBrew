@@ -242,7 +242,10 @@ width:750px;
   .favorite-art-section {
     padding: 40px 15px;
   }
-
+section {
+    padding-right: 0;
+    padding-left: 0;
+}
   .favorite-art-box {
     padding: 35px 22px;
     border-radius: 18px;
