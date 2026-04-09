@@ -7,3 +7,30 @@
     margin-top: 3rem;
     overflow-x:hidden ;
 }
+
+.section-artFight .caption-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.section-artFight .caption-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff4d6d;
+  text-decoration: none;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.section-artFight .caption-title:hover {
+  color: #ffb703;
+  transform: scale(1.03);
+}
+
+.section-artFight .d {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+}

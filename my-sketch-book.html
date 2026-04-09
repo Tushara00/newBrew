@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="mediaQuery.css" />
 <link rel="stylesheet" href="skecthBook.css" />
+<link rel="icon" type="image/png" href="assets/favicon.ico">
+    <title>Hearin's Brew - my-sketch-book</title>
 </head>
 
 <body >
@@ -32,10 +34,11 @@
                         <span class="chevron">&#9662;</span>
                     </div>
                     <ul class="dropdown-menu">
-                        <li><a href="lorcana-game-mat-concepts.html" class="nav-link">Lorcana Game Mat Concepts</a></li>
-                        <li><a href="#" class="nav-link">Art Fight</a></li>
-                        <li><a href="#" class="nav-link">My OCs!</a></li>
-                        <li><a href="#" class="nav-link">Misc Art</a></li>
+                     <li><a href="lorcana-game-mat-concepts.html" class="nav-link">Lorcana Game Mat Concepts</a>
+                            </li>
+                              <li><a href="Art-Fight.html" class="nav-link">Art Fight</a></li>
+                        <li><a href="my-ocs.html" class="nav-link">My OCs!</a></li>
+                        <li><a href="misc-art.html" class="nav-link">Misc Art</a></li>
                         <li><a href="my-sketch-book.html" class="nav-link">My Sketchbook</a></li>
                     </ul>
                 </li>
@@ -51,9 +54,8 @@
                        
                     </ul>
                 </li>
-
-                <li class="nav-item"><a href="#" class="nav-link">Reports</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
+  <li class="nav-item"><a href="other-artistic-works.html" class="nav-link">Other Artistic Works</a></li>
+               
             </ul>
             <div style="padding-top:1rem">
                <div class="sidebar-footer">
@@ -202,26 +204,45 @@ function applyFray(pageEl){
 /* Size the stage so a stretched background fits WITHOUT cropping */
 function layoutBook() {
   if (!bookAspect) return;
-  const effectiveAspect = bookAspect / STRETCH_X;
 
+  const effectiveAspect = bookAspect / STRETCH_X;
+  const isMobile = window.innerWidth <= 768;
+
+  // MOBILE: nearly full width
+  if (isMobile) {
+    const mobilePadding = 12; // left/right spacing
+    const w = window.innerWidth - mobilePadding * 2;
+    const h = w * effectiveAspect;
+
+    stageEl.style.width = `${w}px`;
+    stageEl.style.height = `${h}px`;
+    stageEl.style.margin = "0 auto";
+    return;
+  }
+
+  // DESKTOP / TABLET
   const availableH = Math.max(window.innerHeight - 80, 260);
   const widthByHeight = availableH / effectiveAspect;
 
+  const edgeRight = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue('--edge-right')
+  ) || 0;
+
   const maxColumnW = Math.min(
     window.innerWidth * 0.95,
-    window.innerWidth - parseInt(getComputedStyle(document.documentElement).getPropertyValue('--edge-right')) - 24
+    window.innerWidth - edgeRight - 24
   );
 
   let w = Math.max(300, Math.min(widthByHeight, maxColumnW));
   let h = w * effectiveAspect;
 
-  /* NEW: apply overall scale from CSS to make the book a bit smaller */
   const scale = cssVar('--book-scale', 0.86);
   w *= scale;
   h *= scale;
 
-  stageEl.style.width  = w + "px";
-  stageEl.style.height = h + "px";
+  stageEl.style.width = `${w}px`;
+  stageEl.style.height = `${h}px`;
+  stageEl.style.margin = "";
 }
 (function loadBook(){
   const img = new Image();
