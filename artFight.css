@@ -1,0 +1,9 @@
+  .section-artFight {
+    display: grid; /* Use Grid instead of Flex */
+    /* This creates 3 equal columns */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem; /* Spacing between the items */
+    width: 100%;
+    margin-top: 3rem;
+    overflow-x:hidden ;
+}
