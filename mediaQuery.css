@@ -77,10 +77,21 @@
         min-height: auto;
         /* Let the content define the height */
     }
-
+    .section2{
+ padding-right:1rem;
+  padding-left:1rem;
+}
+section{
+     padding-left: 1rem;
+     padding-right: 1rem;
+}
     .tiles.two {
         grid-template-columns: 1fr !important;
         /* 1 column on mobile */
+    }
+    .tile{
+       flex: 0 0 100%;
+    max-width: 100%;
     }
 
     .feature-title {
