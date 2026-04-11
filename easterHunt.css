@@ -135,6 +135,15 @@
             padding-top: 1rem;
         }
 
+        .sidebar-footer a{
+            font-size: 1rem;
+    font-weight: 700;
+    color: #f97316;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    word-break: break-all;
+        }
+
          header{  
     background: rgba(255, 255, 255, 0.7); /* White with 70% transparency */
     backdrop-filter: blur(12px);         /* This creates the frosted glass look */
