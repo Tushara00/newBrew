@@ -216,7 +216,7 @@
 
     /*background: rgb(204, 121, 65);*/
      background: 
-    linear-gradient(to right, rgb(204, 121, 65), #DA2D24),
+    linear-gradient(to right, rgb(204, 121, 65),  rgb(255, 122, 60)),
 
     /* Geometric pattern overlay */
     repeating-linear-gradient(
