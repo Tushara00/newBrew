@@ -565,6 +565,7 @@ background-position: 15%;
      border-top: 1px solid #f1f5f9;
      margin-top: 4rem;
      text-align: center;
+     
  }
 
  .footer-content {
@@ -727,7 +728,3 @@ background-position: 15%;
      margin: 0;
  }
 
- /* Responsive: stack on mobile */
- @media (max-width: 768px) {
-   
- }

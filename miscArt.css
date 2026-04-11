@@ -206,7 +206,7 @@ section {
   margin: 0 0 12px;
   font-size: clamp(1.4rem, 2vw, 2.2rem);
   font-weight: 800;
-  color: #222;
+  color: #f09c00;
 }
 
 .feature-content p {
