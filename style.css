@@ -287,6 +287,20 @@
      padding-left: 3rem;
      padding-right: 3rem;
  }
+.home-gallery {
+font-size: 20px;
+    font-weight: bold;
+    color: #ee4e04;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+.home-gallery:hover{
+  
+  color: #ffb703;
+  transform: scale(1.03);
+}
+
 
  .wrap {
      display: flex;
@@ -407,15 +421,20 @@
      opacity: 1;
  }
 
+.professional-p{
+   color:rgb(177, 5, 245);
+   font-size: 24px;
 
+}
  .section1 {
      /* 1. Background and Layout */
      background-color: #fefefe;
      /* Very clean off-white */
-     background-image: radial-gradient(#f9731605 2px, transparent 2px);
+     background-image: url("assets/brush.png");
      /* Very subtle orange dots */
-     background-size: 30px 30px;
-
+     background-size: 200px 200px;
+     background-repeat: no-repeat;
+background-position: 15%;
      display: flex;
      justify-content: center;
      align-items: center;
@@ -691,9 +710,11 @@
 
  .cap .t {
      font-weight: 800;
-     font-size: 18px;
+     font-size: 24px;
      margin: 0 0 4px;
+     color:rgba(47, 0, 255, 0.904)
  }
+
 
  .cap .d {
      font-size: 14px;

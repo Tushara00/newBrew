@@ -75,6 +75,8 @@
         /* 1. Reduce vertical padding so it's not too tall on phones */
         padding: 1rem 1.5rem;
         min-height: auto;
+        background-size: 130px 130px;
+       
         /* Let the content define the height */
     }
 
